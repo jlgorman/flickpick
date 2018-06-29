@@ -25,3 +25,6 @@ def weighted_rating(x, m=m, C=C):
     R = x['vote_average']
     # Calculation based on the IMDB formula
     return (v/(v+m) * R) + (m/(m+v) * C)
+
+# Define a new feature 'score' and calculate its value with `weighted_rating()`
+q_movies['score'] = q_movies.apply(weighted_rating, axis=1)
